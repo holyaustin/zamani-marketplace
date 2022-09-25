@@ -25,7 +25,7 @@ const Navbar = () => {
         <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
         <li className="text-black font-semibold bg-red-300 py-5 px-20 mx-14 rounded-full cursor-pointer hover:bg-red-800 hover:text-white">
-          <a href="https://id.worldcoin.org/use?action_id=0x79019cDc0Df3F8F2eb1943AfDa36e769D3a22503&signal=0x0000000000000000000000000000000000000000&app_name=NFTAfrica&return_to=https://nftafrica.vercel.app/" target="_blank" rel="noreferrer">
+          <a href="https://id.worldcoin.org/use?action_id=0x79019cDc0Df3F8F2eb1943AfDa36e769D3a22503&signal=0x0000000000000000000000000000000000000000&app_name=NFTAfrica&return_to=https://mynftafrica.vercel.app/" target="_blank" rel="noreferrer">
             Get WorldCoin ID
           </a>
         </li>

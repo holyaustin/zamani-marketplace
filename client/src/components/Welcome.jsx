@@ -3,9 +3,8 @@ import coinbaseWalletModule from "@web3-onboard/coinbase";
 import walletConnectModule from "@web3-onboard/walletconnect";
 import injectedModule from "@web3-onboard/injected-wallets";
 import Onboard from "@web3-onboard/core";
-// import logo1 from "../assets/recycling.jpg";
+import ConnectUnstoppable from "./unstoppable";
 import logo1 from "../assets/banner2.jpg";
-// import { TransactionContext } from "../context/TransactionContext";
 
 const coinbaseWalletSdk = coinbaseWalletModule();
 const walletConnect = walletConnectModule();
@@ -81,7 +80,8 @@ const Welcome = () => {
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-2xl">
             The world's first and largest digital marketplace <br />for crypto collectibles and non-fungible tokens<br /> (NFTs). Buy, sell, and discover exclusive digital items. <br />
           </p><br />
-          {/** {!currentAccount && ( )} */}
+          <ConnectUnstoppable />
+          {/** {!currentAccount && ( )}
           <button
             type="button"
             onClick={connectWallet2}
@@ -95,7 +95,7 @@ const Welcome = () => {
           <div className="text-white text-2xl font-semibold mx-4 my-5 ">
             <div>Connected Wallet Address: <br /> {account}</div>
           </div>
-
+                  */}
         </div>
       </div>
       <div className="sm:flex-[0.9] lg:flex-[0.9]flex-initial justify-left items-center">

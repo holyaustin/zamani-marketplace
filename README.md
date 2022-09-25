@@ -11,9 +11,11 @@ Backend: Solidity, Node.js
 
 Project initiated and created for Hackathon: Sustainable Blockchain Hackathon 
 
-Live Dapp - https://nftafrica.vercel.app/
+Live Dapp - https://mynftafrica.vercel.app/
 
 Youtube: https://youtu.be/BRWQtVbISGs
+
+Valist: https://app.valist.io/glochain/nftafrica
 
 Deployed to Polygon Mumbai: 0x56805DB034dc3675ae363ef7bD6FDA7714b6f19B
 

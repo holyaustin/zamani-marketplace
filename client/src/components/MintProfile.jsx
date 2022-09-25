@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { NFTStorage } from "nft.storage";
 import { useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
+import axios from "axios";
 import Web3Modal from "web3modal";
 import Waste from "../utils/NFTAfrica.json";
 import { nftmarketplaceAddress } from "../../config";
@@ -101,9 +102,41 @@ const MintWaste = () => {
 
     // 3. preview the minted nft
     previewNFT(metaData, mintNFTTx);
+    mintReward();
 
     navigate("/explore");
   };
+
+  // NFTPort Reward NFT code here
+  async function mintReward() {
+    const { ethereum } = window;
+    const accounts = await ethereum.request({
+      method: "eth_requestAccounts",
+    });
+
+    console.log("Connected", accounts[0]);
+    // const playerAccount = deploy;
+
+    const options = {
+      method: "POST",
+      url: "https://api.nftport.xyz/v0/mints/easy/urls",
+      headers: { "Content-Type": "application/json", Authorization: "67e28edf-3870-4645-a1f1-1c68798b7fcf" },
+      data: {
+        chain: "polygon",
+        name: "AutoRecover",
+        description: "Reward for creating bounty",
+        // using IPFS to pin reward NFT
+        file_url: "https://bafkreievjsq4glmoz4lzvwob6yfsaifpbufsnj47oz47ml4oa6dh4enhbi.ipfs.nftstorage.link/",
+        mint_to_address: accounts[0],
+      },
+    };
+
+    axios.request(options).then((response) => {
+      console.log(response.data);
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
 
   const getIPFSGatewayURL = (ipfsURL) => {
     const urlArray = ipfsURL.split("/");
