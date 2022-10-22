@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import Web3Modal from "web3modal";
+// import { PrivateKey, HarmonyShards, HRC721 } from "harmony-marketplace-sdk";
+// import * as ABI from "./abi.json";
 
-import Waste from "../utils/NFTAfrica.json";
-import { nftmarketplaceAddress } from "../../config";
+import ABI from "../utils/Zamani.json";
+import { hrcMarketplaceAddress } from "../../config";
 
 export default function Sender() {
 //  const navigate = useNavigate();
@@ -15,7 +17,7 @@ export default function Sender() {
   const [loadingState, setLoadingState] = useState("not-loaded");
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
-    loadWaste();
+    loadNFT();
   }, []);
   const getIPFSGatewayURL = (ipfsURL) => {
     const urlArray = ipfsURL.split("/");
@@ -23,15 +25,15 @@ export default function Sender() {
     return ipfsGateWayURL;
   };
 
-  // const rpcUrl = "https://matic-mumbai.chainstacklabs.com";
+  const rpcUrl = "https://api.s0.b.hmny.io";
   // const rpcUrl = "http://localhost:8545";
 
-  async function loadWaste() {
-    /* create a generic provider and query for Wastes */
-    const provider = new ethers.providers.JsonRpcProvider("https://matic-mumbai.chainstacklabs.com");
-    const contract = new ethers.Contract(nftmarketplaceAddress, Waste.abi, provider);
+  async function loadNFT() {
+    /* create a generic provider and query for NFTs */
+    const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+    const contract = new ethers.Contract(hrcMarketplaceAddress, ABI.abi, provider);
     const data = await contract.fetchMarketItems();
-    console.log("Waste data fetched from contract", data);
+    console.log("NFT data fetched from contract", data);
     /*
     *  map over items returned from smart contract and format
     *  them as well as fetch their token metadata
@@ -65,16 +67,16 @@ export default function Sender() {
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
-    const contract = new ethers.Contract(nftmarketplaceAddress, Waste.abi, signer);
+    const contract = new ethers.Contract(hrcMarketplaceAddress, ABI.abi, signer);
 
     /* user will be prompted to pay the asking proces to complete the transaction */
     const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
     const transaction = await contract.createMarketSale(nft.tokenId, { value: price });
     await transaction.wait();
-    console.log("waste transaction completed, waste should show in UI ");
+    console.log("NFT transaction completed, NFT should show in UI ");
     const token = nft.tokenId;
     console.log("token id is ", token);
-    loadWaste();
+    loadNFT();
     // navigate("/view", { state: token });
   }
   if (loadingState === "loaded" && !nfts.length) {
@@ -104,11 +106,11 @@ export default function Sender() {
                 <div style={{ height: "50px", overflow: "hidden" }}>
                   <p className="text-gray-700">Description: {nft.description}</p>
                 </div>
-                <p className="text-xl font-bold text-black">Price : {nft.price} MATIC</p>
+                <p className="text-xl font-bold text-black">Price : {nft.price} ONE</p>
               </div>
 
               <div className="p-2 bg-black">
-                <button type="button" className="mt-4 w-full bg-red-500 text-white font-bold py-2 px-12 rounded" onClick={() => recycle(nft)}>Buy Asset</button>
+                <button type="button" className="mt-4 w-full bg-purple-500 text-white font-bold py-2 px-12 rounded" onClick={() => recycle(nft)}>Buy Asset</button>
               </div>
             </div>
           ))}

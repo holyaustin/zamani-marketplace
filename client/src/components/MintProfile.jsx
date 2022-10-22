@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
 import Web3Modal from "web3modal";
-import Waste from "../utils/NFTAfrica.json";
-import { nftmarketplaceAddress } from "../../config";
+import Waste from "../utils/Zamani.json";
+import { hrcMarketplaceAddress } from "../../config";
 
 // eslint-disable-next-line max-len
 const APIKEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGVFNjg2MjliODhCNzg1NTdFODgxNzQxMGE5RkQzZTlFOWE4MjVFODAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY2MzI1NzUwNjE5OCwibmFtZSI6Ik5GVEFmcmljYSJ9.RDomOPpapkAjHXNizveAVhyzuu2nvRkaXSb5NznxplY";
@@ -61,14 +61,14 @@ const MintWaste = () => {
 
   const sendTxToBlockchain = async (metadata) => {
     try {
-      setTxStatus("Adding transaction to Polygon Mumbai Blockchain.");
+      setTxStatus("Adding transaction to Harmony Blockchain.");
       const web3Modal = new Web3Modal();
       const connection = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(connection);
 
       const price = ethers.utils.parseUnits(formInput.price, "ether");
-      const connectedContract = new ethers.Contract(nftmarketplaceAddress, Waste.abi, provider.getSigner());
-      console.log("Connected to contract", nftmarketplaceAddress);
+      const connectedContract = new ethers.Contract(hrcMarketplaceAddress, Waste.abi, provider.getSigner());
+      console.log("Connected to contract", hrcMarketplaceAddress);
       console.log("IPFS blockchain uri is ", metadata.url);
 
       const mintNFTTx = await connectedContract.createToken(metadata.url, price);
@@ -76,7 +76,7 @@ const MintWaste = () => {
       // await mintNFTTx.wait();
       return mintNFTTx;
     } catch (error) {
-      setErrorMessage("Failed to send tx to Polygon Mumbai.");
+      setErrorMessage("Failed to send tx to Harmony.");
       console.log(error);
     }
   };
@@ -87,8 +87,8 @@ const MintWaste = () => {
     console.log("image ipfs path is", imgViewString);
     setImageView(imgViewString);
     setMetaDataURl(getIPFSGatewayURL(metaData.url));
-    setTxURL(`https://mumbai.polygonscan.com/tx/${mintNFTTx.hash}`);
-    setTxStatus("Waste registration was successfully!");
+    setTxURL(`https://explorer.pops.one/tx/${mintNFTTx.hash}`);
+    setTxStatus("NFT registration was successfully!");
     console.log("Preview details completed");
   };
 
@@ -97,7 +97,7 @@ const MintWaste = () => {
     // 1. upload NFT content via NFT.storage
     const metaData = await uploadNFTContent(uploadedFile);
 
-    // 2. Mint a NFT token on Polygon
+    // 2. Mint a NFT token on Harmony
     const mintNFTTx = await sendTxToBlockchain(metaData);
 
     // 3. preview the minted nft
@@ -123,8 +123,8 @@ const MintWaste = () => {
       headers: { "Content-Type": "application/json", Authorization: "67e28edf-3870-4645-a1f1-1c68798b7fcf" },
       data: {
         chain: "polygon",
-        name: "AutoRecover",
-        description: "Reward for creating bounty",
+        name: "Zamani",
+        description: "Users Appreciation",
         // using IPFS to pin reward NFT
         file_url: "https://bafkreievjsq4glmoz4lzvwob6yfsaifpbufsnj47oz47ml4oa6dh4enhbi.ipfs.nftstorage.link/",
         mint_to_address: accounts[0],
@@ -149,7 +149,7 @@ const MintWaste = () => {
   return (
     <>
       <div className="text-4xl text-center text-white font-bold mt-10">
-        <h1> Mint Digital Art</h1>
+        <h1> Mint NFT / Collectibles</h1>
       </div>
       <div className="flex justify-center">
         <div className="w-1/2 flex flex-col pb-12 ">
@@ -165,7 +165,7 @@ const MintWaste = () => {
             rows={2}
           />
           <input
-            placeholder="Price in Matic, if free put 0"
+            placeholder="Price in ONE Token"
             className="mt-5 border rounded p-4 text-xl"
             onChange={(e) => updateFormInput({ ...formInput, price: e.target.value })}
           />
@@ -173,7 +173,7 @@ const MintWaste = () => {
 
           <div className="MintNFT text-white text-xl">
             <form>
-              <h3>Select a picture of the Art</h3>
+              <h3>Select your Collectible</h3>
               <input type="file" onChange={handleFileUpload} className="mt-5 border rounded p-4 text-xl" />
             </form>
             {txStatus && <p>{txStatus}</p>}
@@ -188,7 +188,7 @@ const MintWaste = () => {
             {imageView && (
             <img
               className="mb-10"
-              title="Ebook "
+              title="NFT"
               src={imageView}
               alt="NFT preview"
               frameBorder="0"
@@ -200,7 +200,7 @@ const MintWaste = () => {
 
           </div>
 
-          <button type="button" onClick={(e) => mintNFTToken(e, uploadedFile)} className="font-bold mt-20 bg-red-500 text-white text-2xl rounded p-4 shadow-lg">
+          <button type="button" onClick={(e) => mintNFTToken(e, uploadedFile)} className="font-bold mt-20 bg-purple-500 text-white text-2xl rounded p-4 shadow-lg">
             Mint Asset
           </button>
         </div>

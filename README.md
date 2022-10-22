@@ -17,6 +17,8 @@ Youtube: https://youtu.be/BRWQtVbISGs
 
 Valist: https://app.valist.io/glochain/nftafrica
 
+Aurora: https://testnet.aurorascan.dev/address/0x1b186af82d1b48bc6064ae01c958d18c90b97625
+
 Deployed to Polygon Mumbai: 0x56805DB034dc3675ae363ef7bD6FDA7714b6f19B
 
 

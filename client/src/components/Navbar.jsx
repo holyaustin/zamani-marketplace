@@ -2,7 +2,7 @@ import React from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import logo from "../assets/logonft.webp";
+import logo from "../assets/zamani.png";
 
 const NavBarItem = ({ title, classprops }) => (
   <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
@@ -24,11 +24,13 @@ const Navbar = () => {
         <Link to="/explore">Explore</Link>
         <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
+        {/**
         <li className="text-black font-semibold bg-red-300 py-5 px-20 mx-14 rounded-full cursor-pointer hover:bg-red-800 hover:text-white">
           <a href="https://id.worldcoin.org/use?action_id=0x79019cDc0Df3F8F2eb1943AfDa36e769D3a22503&signal=0x0000000000000000000000000000000000000000&app_name=NFTAfrica&return_to=https://mynftafrica.vercel.app/" target="_blank" rel="noreferrer">
             Get WorldCoin ID
           </a>
         </li>
+        */}
       </ul>
       <div className="flex relative">
         {!toggleMenu && (

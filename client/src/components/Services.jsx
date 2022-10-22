@@ -3,7 +3,7 @@ import React from "react";
 import { BsShieldFillCheck } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
 import { RiHeart2Fill } from "react-icons/ri";
-import logo1 from "../assets/recycling.jpg";
+import logo1 from "../assets/zam2.png";
 
 const ServiceCard = ({ color, title, icon, subtitle }) => (
   <div className="flex flex-row justify-start items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl text-justify">
