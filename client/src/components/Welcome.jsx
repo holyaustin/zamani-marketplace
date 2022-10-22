@@ -4,7 +4,7 @@ import walletConnectModule from "@web3-onboard/walletconnect";
 import injectedModule from "@web3-onboard/injected-wallets";
 import Onboard from "@web3-onboard/core";
 // import ConnectUnstoppable from "./unstoppable";
-import logo1 from "../assets/zam2.png";
+import logo1 from "../assets/landing.webp";
 
 const coinbaseWalletSdk = coinbaseWalletModule();
 const walletConnect = walletConnectModule();
@@ -93,7 +93,7 @@ const Welcome = () => {
           */}
         </div>
       </div>
-      <div className="sm:flex-[0.5] lg:flex-[1.9]flex-initial justify-left items-center">
+      <div className="sm:flex-[0.8] lg:flex-[1.9]flex-initial justify-left items-center">
 
         <img src={logo1} alt="welcome" className="w-100 cursor-pointer" />
       </div>

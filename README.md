@@ -1,29 +1,21 @@
-# NFTAfrica - An African NFT Collection
+# Zamani - An NFT Marketplace deployed on Harmony
+An NFT Marketplace to allow a user to buy/sell HRC721 and HRC1155 tokens using HRC20 tokens or ONE tokens
 
 ## Introduction
-This project named NFTAfrica uses IPFS / Filcoin's NFT.storage mechanism to store African Arts as NFTs. A users can register this arts as NFTs and its metadata is stored on IPFS decentralized storage using NFT.Storage mechanism.  The metadata consists of categories. 
+This project named Zamani uses IPFS / Filcoin's NFT.storage mechanism to store Digital Arts as NFTs. A users can register this arts as NFTs and its metadata is stored on IPFS decentralized storage using NFT.Storage mechanism.  The metadata consists of categories. 
 
 ## Web 3.0 technologies Used
 
 Frontend: vite, postcss, tailwindcss, 
-web3 technologies: IPFS/filecoin, coinbase wallet, metamask
+web3 technologies: IPFS/filecoin, Covalent, Harmony metamask Wallet
 Backend: Solidity, Node.js
 
 Project initiated and created for Hackathon: Sustainable Blockchain Hackathon 
 
-Live Dapp - https://mynftafrica.vercel.app/
+Live Dapp - https://zamani.vercel.app/
 
 Youtube: https://youtu.be/BRWQtVbISGs
 
-Valist: https://app.valist.io/glochain/nftafrica
 
-Aurora: https://testnet.aurorascan.dev/address/0x1b186af82d1b48bc6064ae01c958d18c90b97625
+Deployed to Harmony Testnet: 0xD547726541FB37dB19fDB263f4855bA969034071
 
-Deployed to Polygon Mumbai: 0x56805DB034dc3675ae363ef7bD6FDA7714b6f19B
-
-
-## Connect with me and send me a mail
-
-E-mail - gloriaukoha@gmail.com
-
-stay connected on twitter @glochain
