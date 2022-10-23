@@ -12,8 +12,8 @@ const injected = injectedModule();
 
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 
-const MAINNET_RPC_URL = "https://polygon-mainnet.g.alchemy.com/v2/odpZQIbE3xtAii8qMNePX-0M6fyB8G0V";
-const TESTNET_RPC_URL = "https://polygon-mumbai.g.alchemy.com/v2/odpZQIbE3xtAii8qMNePX-0M6fyB8G0V";
+const MAINNET_RPC_URL = "https://api.harmony.one";
+const TESTNET_RPC_URL = "https://api.s0.b.hmny.io";
 
 const onboard = Onboard({
   wallets: modules, // created in previous step

@@ -5,5 +5,6 @@ export { default as Welcome } from "./Welcome";
 export { default as Footer } from "./Footer";
 export { default as MintProfile } from "./MintProfile";
 export { default as Sender } from "./Sender";
+export { default as Covalent } from "./covalent";
 export { default as ConnectWallet } from "./unstoppable";
 

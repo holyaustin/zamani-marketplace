@@ -7,7 +7,7 @@ This project named Zamani uses IPFS / Filcoin's NFT.storage mechanism to store D
 ## Web 3.0 technologies Used
 
 Frontend: vite, postcss, tailwindcss, 
-web3 technologies: IPFS/filecoin, Covalent, Harmony metamask Wallet
+web3 technologies: IPFS/filecoin, Covalent, Harmony, metamask Wallet
 Backend: Solidity, Node.js
 
 Project initiated and created for Hackathon: Sustainable Blockchain Hackathon 
